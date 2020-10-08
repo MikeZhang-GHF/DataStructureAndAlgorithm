@@ -13,6 +13,4 @@ public interface IHashTable<K, V> {
     int size();
 
     void print();
-
-
 }
