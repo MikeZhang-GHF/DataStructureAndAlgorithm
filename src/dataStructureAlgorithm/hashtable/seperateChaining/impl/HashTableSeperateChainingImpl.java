@@ -1,6 +1,6 @@
-package hashtable.seperateChaining.impl;
+package dataStructureAlgorithm.hashtable.seperateChaining.impl;
 
-import hashtable.IHashTable;
+import dataStructureAlgorithm.hashtable.IHashTable;
 
 public class HashTableSeperateChainingImpl<K, V> implements IHashTable<K, V> {
     @Override

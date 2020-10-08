@@ -1,4 +1,4 @@
-package hashtable.seperateChaining;
+package dataStructureAlgorithm.hashtable.seperateChaining;
 
 public class HashNode<K, V> {
 

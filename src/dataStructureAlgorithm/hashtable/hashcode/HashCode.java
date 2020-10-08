@@ -1,4 +1,4 @@
-package hashtable.hashcode;
+package dataStructureAlgorithm.hashtable.hashcode;
 
 import java.util.HashMap;
 

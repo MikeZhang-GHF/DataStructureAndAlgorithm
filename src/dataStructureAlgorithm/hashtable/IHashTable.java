@@ -1,4 +1,4 @@
-package hashtable;
+package dataStructureAlgorithm.hashtable;
 
 public interface IHashTable<K, V> {
 
