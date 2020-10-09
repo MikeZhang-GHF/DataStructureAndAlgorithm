@@ -4,7 +4,7 @@ package dataStructureAlgorithm.heap.impl;
  * Max Heap the parent is no less than its left and right children
  */
 public interface IMaxHeap<E> {
-    void offer(E item);
+    boolean offer(E e);
 
     E poll();
 

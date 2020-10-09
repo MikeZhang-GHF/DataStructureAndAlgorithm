@@ -1,6 +1,6 @@
 package dataStructureAlgorithm.heap.impl;
 
-public class IMaxHeapImpl<E extends Comparable<E>> implements IMaxHeap{
+public class IMaxHeapImpl<E extends Comparable<E>> implements IMaxHeap {
 
     private int capacity;
 
@@ -67,7 +67,7 @@ public class IMaxHeapImpl<E extends Comparable<E>> implements IMaxHeap{
      * siftDown
      * this function is a little bit complicated
      * 1. compare the data with its left child only(its impossible that it has right child only)
-     *   then relocate them if necessary
+     * then relocate them if necessary
      */
     private void siftDown() {
         int index = 0;
@@ -85,20 +85,47 @@ public class IMaxHeapImpl<E extends Comparable<E>> implements IMaxHeap{
         }
     }
 
-
     @Override
-    public void offer(Object item) {
-
+    public boolean offer(Object e) {
+        if (data.length == size) {
+            expandCapacity();
+        }
+        // always put the data at the last position
+        data[size] = (E)e;
+        size++;
+        siftup();
+        return true;
     }
+
+    private void expandCapacity() {
+        E[] temp = (E[]) new Comparable[capacity * 2];
+        for (int i = 0; i < capacity; i++) {
+            temp[i] = data[i];
+        }
+        capacity *= 2;
+        data = temp;
+    }
+
 
     @Override
     public E poll() {
-        return null;
+        if (size == 0) {
+            throw new IllegalArgumentException("Max heap is empty!");
+        }
+        E e = data[0];
+        data[0] = data[size - 1];
+        data[size - 1] = null;
+        size--;
+        siftDown();
+        return e;
     }
 
     @Override
     public E peek() {
-        return null;
+        if (size == 0) {
+            throw new IllegalArgumentException("Max heap is empty!");
+        }
+        return data[0];
     }
 
     @Override
@@ -113,6 +140,8 @@ public class IMaxHeapImpl<E extends Comparable<E>> implements IMaxHeap{
 
     @Override
     public void print() {
-
+        for (int i = 0; i < data.length; i++) {
+            System.out.print(data[i] + " ");
+        }
     }
 }
