@@ -1,4 +1,4 @@
-package linkedHashMapTest;
+package dataStructureAlgorithm.hashtable.linkedHashMapTest;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
