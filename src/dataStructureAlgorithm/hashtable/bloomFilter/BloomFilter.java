@@ -3,7 +3,10 @@ package dataStructureAlgorithm.hashtable.bloomFilter;
 import java.util.BitSet;
 
 /**
- * K hash function
+ * 1. hash function: k hash for k parameters
+ * 2. add() contain()
+ * 3. remove() is not supported
+ * 4. we can use counting bloom filter to solve remove()
  */
 public class BloomFilter {
     // 25 bits

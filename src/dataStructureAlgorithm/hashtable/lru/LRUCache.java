@@ -1,4 +1,4 @@
-package lru;
+package dataStructureAlgorithm.hashtable.lru;
 
 import java.util.HashMap;
 
