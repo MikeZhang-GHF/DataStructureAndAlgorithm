@@ -2,6 +2,15 @@ package dataStructureAlgorithm.sortAlgorithm;
 
 import java.util.Arrays;
 
+/**
+ * Heap sort
+ * 1. construction of heap: Time O(N)
+ * 2. Adjustment of heap: Time O(N)
+ * 3. O(NlogN)
+ * 4. Sapce: O(1)
+ * 5. Unstable sorting
+ */
+
 public class HeapSort {
     public static void heapSort(int[] nums) {
         for (int i = (nums.length - 1) / 2; i >= 0; i--) {
