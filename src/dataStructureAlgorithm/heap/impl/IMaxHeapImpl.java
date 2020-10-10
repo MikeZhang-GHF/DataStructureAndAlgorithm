@@ -18,6 +18,20 @@ public class IMaxHeapImpl<E extends Comparable<E>> implements IMaxHeap {
         this.capacity = data.length;
         this.size = data.length;
         this.data = data;
+        heapify(data);
+    }
+
+    /**
+     * Heapify
+     * 1. We leave the leaf nodes
+     * 2. starting from the last leaf node and
+     * 3. siftdown the all the parent nodes
+     * @param data
+     */
+    private void heapify(E[] data) {
+        for (int i = getParentIndex(size - 1); i >= 0; i--) {
+            siftDownHeapify(i);
+        }
     }
 
     private int getParentIndex(int childIndex) {
@@ -64,26 +78,61 @@ public class IMaxHeapImpl<E extends Comparable<E>> implements IMaxHeap {
     }
 
     /**
+     * Time: O(N)
+     * h = sum((the height of heap)logN * N/2(the number of all leaves)) = (h-1) * N / 2
+     * sum = n- logn => O(N)
+     * @param index
+     */
+    private void siftDownHeapify(int index) {
+        // Always start from position of zero
+        while (getLeftChildIndex(index) < size) {
+            int biggerChildIndex = getLeftChildIndex(index);
+            // 1.Compare left and right child to get the bigger child
+            if (getRightChildIndex(index) < size && rightChild(index).compareTo(leftChild(index)) > 0) {
+                biggerChildIndex = getRightChildIndex(index);
+            }
+            // 2.Compare the bigger child with current to get the bigger one
+            if (data[index].compareTo(data[biggerChildIndex]) > 0) {
+                break;
+            } else {
+                swap(index, biggerChildIndex);
+            }
+            // 3. Move deeper in the Max heap
+            index = biggerChildIndex;
+        }
+    }
+
+    /**
      * siftDown
      * this function is a little bit complicated
      * 1. compare the data with its left child only(its impossible that it has right child only)
      * then relocate them if necessary
      */
     private void siftDown() {
+        // Always start from position of zero
         int index = 0;
         while (getLeftChildIndex(index) < size) {
             int biggerChildIndex = getLeftChildIndex(index);
+            // 1.Compare left and right child to get the bigger child
             if (getRightChildIndex(index) < size && rightChild(index).compareTo(leftChild(index)) > 0) {
                 biggerChildIndex = getRightChildIndex(index);
             }
+            // 2.Compare the bigger child with current to get the bigger one
             if (data[index].compareTo(data[biggerChildIndex]) > 0) {
                 break;
             } else {
                 swap(index, biggerChildIndex);
             }
+            // 3. Move deeper in the Max heap
             index = biggerChildIndex;
         }
     }
+
+    /**
+     * Time: O(NlogN)
+     * @param e
+     * @return
+     */
 
     @Override
     public boolean offer(Object e) {
@@ -91,7 +140,7 @@ public class IMaxHeapImpl<E extends Comparable<E>> implements IMaxHeap {
             expandCapacity();
         }
         // always put the data at the last position
-        data[size] = (E)e;
+        data[size] = (E) e;
         size++;
         siftup();
         return true;
