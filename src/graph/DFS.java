@@ -3,6 +3,9 @@ package graph;
 import java.util.HashSet;
 import java.util.List;
 
+/**
+ * Very important algorithm need to be memorized and can code it blindly.
+ */
 public class DFS {
 
     public static void dfs(List<GraphNode> list) {
@@ -13,6 +16,10 @@ public class DFS {
                 helper(node, visited);
             }
         }
+    }
+
+    public static void dfsMatrix(int[][] matrix) {
+        int[] visited = new int[matrix.length];
     }
 
     /**
@@ -68,6 +75,15 @@ public class DFS {
         e.neighbors.add(c);
 
         f.neighbors.add(a);
+
+        int[][] matrix = new int[][]{
+                {0, 1, 0, 1, 0, 1},
+                {1, 0, 1, 0, 1, 0},
+                {0, 1, 0, 0, 1, 0},
+                {1, 0, 0, 0, 1, 0},
+                {0, 1, 1, 1, 0, 0},
+                {1, 0, 0, 0, 0, 0}
+        };
 
         dfs2(a);
     }
