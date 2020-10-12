@@ -20,6 +20,25 @@ public class DFS {
 
     public static void dfsMatrix(int[][] matrix) {
         int[] visited = new int[matrix.length];
+        for (int i = 0; i < visited.length; i++) {
+            if (visited[i] == 0) {
+                helper(matrix, visited, i);
+            }
+
+
+        }
+    }
+
+    private static void helper(int[][] matrix, int[] visited, int vertex) {
+        visited[vertex] = 1;
+        System.out.println(vertex);
+        for (int i = 0; i < matrix.length; i++) {
+            if (matrix[vertex][i] == 1) {
+                if (visited[i] == 0) {
+                    helper(matrix, visited, i);
+                }
+            }
+        }
     }
 
     /**
@@ -42,6 +61,11 @@ public class DFS {
             }
         }
     }
+
+    public static void dfsIteration(GraphNode graphNode) {
+        
+    }
+
 
     /**
      * Test DFS
@@ -85,7 +109,8 @@ public class DFS {
                 {1, 0, 0, 0, 0, 0}
         };
 
-        dfs2(a);
+        //dfs2(a);
+        dfsMatrix(matrix);
     }
 
 }
