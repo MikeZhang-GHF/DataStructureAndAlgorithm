@@ -1,6 +1,7 @@
 package graph;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GraphNode {
 
@@ -12,4 +13,9 @@ public class GraphNode {
         this.label = label;
         neighbors = new ArrayList<>();
     }
+
+    public void add(GraphNode node) {
+        neighbors.add(node);
+    }
+
 }
