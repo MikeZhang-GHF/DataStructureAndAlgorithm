@@ -2,6 +2,7 @@ package graph;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * Very important algorithm need to be memorized and can code it blindly.
@@ -63,7 +64,21 @@ public class DFS {
     }
 
     public static void dfsIteration(GraphNode graphNode) {
-        
+        Stack<GraphNode> stack = new Stack<>();
+        HashSet<GraphNode> visited = new HashSet<>();
+
+        stack.push(graphNode);
+        visited.add(graphNode);
+        while (!stack.isEmpty()) {
+            GraphNode node = stack.pop();
+            System.out.println(node.label);
+            for (GraphNode neighbor : node.neighbors) {
+                if (!visited.contains(neighbor)) {
+                    stack.push(neighbor);
+                    visited.add(neighbor);
+                }
+            }
+        }
     }
 
 
@@ -110,7 +125,8 @@ public class DFS {
         };
 
         //dfs2(a);
-        dfsMatrix(matrix);
+        //dfsMatrix(matrix);
+        dfsIteration(a);
     }
 
 }
