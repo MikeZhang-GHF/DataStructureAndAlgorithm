@@ -63,6 +63,11 @@ public class DFS {
         }
     }
 
+    /**
+     * Use the iteration to implement the DFS
+     * @param graphNode
+     */
+
     public static void dfsIteration(GraphNode graphNode) {
         Stack<GraphNode> stack = new Stack<>();
         HashSet<GraphNode> visited = new HashSet<>();
@@ -81,6 +86,37 @@ public class DFS {
         }
     }
 
+    /**
+     * Use the iteration to implement the DFS
+     * @param matrix
+     */
+    public static void dfsMatrixIteration(int[][] matrix) {
+        int[] visited = new int[matrix.length];
+        Stack<Integer> stack = new Stack<>();
+
+        for (int i = 0; i < visited.length; i++) {
+            if (visited[i] == 0) {
+                visited[i] = 1;
+                stack.push(i);
+                while (!stack.isEmpty()) {
+                    int vertex = stack.pop();
+                    System.out.println(vertex);
+                    for (int j = 0; j < matrix.length; j++) {
+                        if (matrix[vertex][j] == 1) {
+                            if (visited[j] == 0) {
+                                stack.push(j);
+                                visited[j] = 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+
+    }
 
     /**
      * Test DFS
@@ -126,7 +162,8 @@ public class DFS {
 
         //dfs2(a);
         //dfsMatrix(matrix);
-        dfsIteration(a);
+        //dfsIteration(a);
+        dfsMatrixIteration(matrix);
     }
 
 }
