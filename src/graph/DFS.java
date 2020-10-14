@@ -6,8 +6,16 @@ import java.util.Stack;
 
 /**
  * Very important algorithm need to be memorized and can code it blindly.
+ * 1. If use the Graph node class to represent the graph
+ * Time: O(V+E) V: number of nodes, E: number of Edges
+ * Space: O(V)
+ *
+ * 2. If use the matrix to represent the graph
+ * Time: O(V^2)
+ * Space:O(V)
  */
 public class DFS {
+
 
     public static void dfs(List<GraphNode> list) {
         HashSet<GraphNode> visited = new HashSet<>();
@@ -112,10 +120,6 @@ public class DFS {
                 }
             }
         }
-
-
-
-
     }
 
     /**
