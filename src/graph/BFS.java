@@ -1,10 +1,20 @@
 package graph;
 
-import sun.awt.image.ImageWatched;
-
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
+
+/**
+ *  Very important algorithm need to be memorized and can code it blindly.
+ *  1. If use the Graph node class to represent the graph
+ *  Time: O(V+E) V: number of nodes, E: number of Edges
+ *  Space: O(V)
+ *
+ *  2. If use the matrix to represent the graph
+ *  Time: O(V^2)
+ *  Space:O(V)
+ *
+ */
 
 public class BFS {
     public static void bfs(GraphNode graphNode) {
@@ -50,7 +60,26 @@ public class BFS {
     }
 
     public static void bfsMatrix(int[][] matrix) {
-
+        int[] visited = new int[matrix.length];
+        Queue<Integer> queue = new LinkedList<>();
+        for (int i = 0; i < visited.length; i++) {
+            if (visited[i] == 0) {
+                visited[i] = 1;
+                queue.offer(i);
+                while (!queue.isEmpty()) {
+                    Integer vertex = queue.poll();
+                    System.out.println(vertex);
+                    for (int j = 0; j < matrix.length; j++) {
+                        if (matrix[vertex][j] == 1) {
+                            if (visited[j] == 0) {
+                                queue.offer(j);
+                                visited[j] = 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public static void main(String[] args) {
@@ -91,6 +120,7 @@ public class BFS {
         };
 
         //bfs(a);
-        bfs2(a);
+        //bfs2(a);
+        bfsMatrix(matrix);
     }
 }
