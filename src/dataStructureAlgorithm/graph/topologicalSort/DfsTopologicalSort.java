@@ -1,4 +1,4 @@
-package graph.topologicalSort;
+package dataStructureAlgorithm.graph.topologicalSort;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,11 +7,11 @@ import java.util.List;
 public class DfsTopologicalSort {
     public int[] findOrder(int numCourses, int[][] prerequisites) {
         List<List<Integer>> graph = new ArrayList<>();
-        // Init the graph
+        // Init the dataStructureAlgorithm.graph
         for (int i = 0; i < numCourses; i++) {
             graph.add(new ArrayList<>());
         }
-        // Convert the prerequisites to graph
+        // Convert the prerequisites to dataStructureAlgorithm.graph
         for (int[] pair : prerequisites) {
             // the prerequisite course
             int prev = pair[1];
@@ -45,7 +45,7 @@ public class DfsTopologicalSort {
     }
 
     /**
-     * Traverse the graph to check the cycle in the path
+     * Traverse the dataStructureAlgorithm.graph to check the cycle in the path
      *
      * @param graph
      * @param visited

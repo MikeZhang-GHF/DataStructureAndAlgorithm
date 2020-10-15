@@ -1,4 +1,4 @@
-package graph;
+package dataStructureAlgorithm.graph;
 
 import java.util.HashSet;
 import java.util.List;
@@ -6,11 +6,11 @@ import java.util.Stack;
 
 /**
  * Very important algorithm need to be memorized and can code it blindly.
- * 1. If use the Graph node class to represent the graph
+ * 1. If use the Graph node class to represent the dataStructureAlgorithm.graph
  * Time: O(V+E) V: number of nodes, E: number of Edges
  * Space: O(V)
- *
- * 2. If use the matrix to represent the graph
+ * <p>
+ * 2. If use the matrix to represent the dataStructureAlgorithm.graph
  * Time: O(V^2)
  * Space:O(V)
  */

@@ -1,19 +1,18 @@
-package graph;
+package dataStructureAlgorithm.graph;
 
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- *  Very important algorithm need to be memorized and can code it blindly.
- *  1. If use the Graph node class to represent the graph
- *  Time: O(V+E) V: number of nodes, E: number of Edges
- *  Space: O(V)
- *
- *  2. If use the matrix to represent the graph
- *  Time: O(V^2)
- *  Space:O(V)
- *
+ * Very important algorithm need to be memorized and can code it blindly.
+ * 1. If use the Graph node class to represent the dataStructureAlgorithm.graph
+ * Time: O(V+E) V: number of nodes, E: number of Edges
+ * Space: O(V)
+ * <p>
+ * 2. If use the matrix to represent the dataStructureAlgorithm.graph
+ * Time: O(V^2)
+ * Space:O(V)
  */
 
 public class BFS {

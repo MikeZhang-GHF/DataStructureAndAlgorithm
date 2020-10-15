@@ -1,4 +1,4 @@
-package graph.leetcode;
+package dataStructureAlgorithm.graph.leetcode;
 
 import java.util.*;
 
@@ -15,7 +15,7 @@ public class CloneGraph {
         return helper(node, new HashMap<>());
     }
 
-    // DFS to clone graph
+    // DFS to clone dataStructureAlgorithm.graph
     private Node helper(Node node, HashMap<Node, Node> map) {
         List<Node> neighbors = new ArrayList<>();
         Node copy = new Node(node.val, neighbors);
@@ -32,7 +32,7 @@ public class CloneGraph {
         return map.get(node);
     }
 
-    // BFS to clone graph
+    // BFS to clone dataStructureAlgorithm.graph
     public Node cloneGraph2(Node node) {
         if (node == null) {
             return null;

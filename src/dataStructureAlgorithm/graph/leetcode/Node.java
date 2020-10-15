@@ -1,4 +1,4 @@
-package graph.leetcode;
+package dataStructureAlgorithm.graph.leetcode;
 
 import java.util.List;
 
