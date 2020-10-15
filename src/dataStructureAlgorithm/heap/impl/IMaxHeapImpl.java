@@ -1,5 +1,10 @@
 package dataStructureAlgorithm.heap.impl;
 
+/**
+ * Insert(),remove(), Time: O(log(N))
+ * offer() call many times: O(NlongN)
+ */
+
 public class IMaxHeapImpl<E extends Comparable<E>> implements IMaxHeap {
 
     private int capacity;
