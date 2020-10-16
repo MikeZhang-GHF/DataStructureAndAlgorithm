@@ -1,9 +1,9 @@
 package dataStructureAlgorithm.unionFind.leetcode;
 
-public class NumberofConnectedComponentsinanUndirectedGraph {
+public class NumberofConnectedComponentsinanUndirectedGraph2 {
 
     private int res;
-    private int[] id;
+    private int[] parents;
     /**
      * The number of nodes
      */
@@ -13,25 +13,23 @@ public class NumberofConnectedComponentsinanUndirectedGraph {
         if (index < 0 || index >= count) {
             throw new IllegalArgumentException("index is out of range");
         }
-        return id[index];
+        while (index != parents[index]) {
+            index = parents[index];
+        }
+        return index;
     }
 
     private void union(int x, int y) {
         // Set 1
-        int A = find(x);
+        int xRoot = find(x);
         // Set 2
-        int B = find(y);
+        int yRoot = find(y);
 
-        if (A == B) {
+        if (xRoot == yRoot) {
             return;
         }
         // union
-        for (int i = 0; i < id.length; i++) {
-            if (id[i] == A) {
-                id[i] = B;
-            }
-        }
-        //
+        parents[xRoot] = yRoot;
         res--;
     }
 
@@ -42,16 +40,16 @@ public class NumberofConnectedComponentsinanUndirectedGraph {
     public int countComponents(int n, int[][] edges) {
         res = n;
         this.count = n;
-        id = new int[count];
+        parents = new int[count];
 
-        for (int i = 0; i < id.length; i++) {
-            id[i] = i;
+        for (int i = 0; i < parents.length; i++) {
+            parents[i] = i;
         }
 
         for (int[] pair : edges) {
-            int A = find(pair[0]);
-            int B = find(pair[1]);
-            union(A, B);
+            int xRoot = find(pair[0]);
+            int yRoot = find(pair[1]);
+            union(xRoot, yRoot);
         }
         return res;
     }
